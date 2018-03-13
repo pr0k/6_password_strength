@@ -1,6 +1,6 @@
 # Password Strength Calculator
 
-This program calculates the strength of the password.
+This program calculates and then shows the strength of the password from 1 to 10
 
 The calculation is based on my own simple algorithm.
 
