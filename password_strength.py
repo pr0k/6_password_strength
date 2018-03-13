@@ -72,7 +72,7 @@ def print_password_strength(password_strength):
     print(
         '\nstrength of password %s\n' % password,
         'rating is %s' % password_strength['rating'],
-        password_strength['detail'],
+        'password is %s' % password_strength['detail'],
         sep='\n',
         end='\n\n',
     )
@@ -81,7 +81,7 @@ def print_password_strength(password_strength):
 def get_password_strength(password, blacklist, users_info):
     password_strength = {
         'rating': 1,
-        'detail': 'password is not in the black list or '
+        'detail': 'not in the black list or '
         'user\'s personal information list'
     }
     for regex in get_regex_list('positive'):
@@ -109,8 +109,7 @@ def check_matches_in_file(file_to_check, password, password_strength):
         for pattern in text_file.read().split():
             if re.search(pattern, password):
                 password_strength['rating'] -= 5
-                password_strength['detail'] = 'warning: password or '\
-                    'part of it was found in the <%s>!' % text_file.name
+                password_strength['detail'] = 'in the %s' % text_file.name
         text_file.close()
         return password_strength
     else:
